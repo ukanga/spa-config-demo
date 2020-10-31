@@ -1,22 +1,27 @@
 import logo from './logo.svg';
 import './App.css';
 
+let AppConfig = {};
+
+if (typeof window._env_ === 'undefined') {
+    console.log("Global config not present.");
+} else {
+    if (typeof window._env_.AppConfig === 'undefined') {
+        console.log("AppConfig not set");
+    } else {
+        console.log("Global config is set.");
+        AppConfig = window._env_.AppConfig;
+    }
+}
+
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+            Hello, my code name is: <i>{AppConfig.CodeName}</i>.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
     </div>
   );
