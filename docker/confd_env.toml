@@ -1,0 +1,7 @@
+[template]
+src = "config.js.tmpl"
+dest = "/usr/share/nginx/html/config.js"
+keys = [
+    "/app/codename",
+    "/app/name",
+]
