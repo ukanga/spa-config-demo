@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "spa-app.fullname" . }}-config
+  labels:
+    {{- include "spa-app.labels" . | nindent 4 }}
+data:
+  {{- range $key, $val := .Values.appConfigValues }}
+  {{ $key }}: {{ $val | quote }}
+  {{- end }}
